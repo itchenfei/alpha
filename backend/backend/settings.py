@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+ASGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
@@ -121,3 +121,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# channels
+CHANNELS_LAYER = {
+    'default': {
+        'backend': 'channels_redis.core.RedisChannelLayer',
+        'config': {
+            'hosts': [('localhost', 6379)],
+        }
+    }
+}
